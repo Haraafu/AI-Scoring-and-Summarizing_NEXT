@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+
+# Env & IDE
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+
+# Data & Model Artifacts
+models/
+checkpoints/
+*.bin
+*.safetensors
+*.pt
+*.onnx
+*.ckpt
+*.npz
+*.npy
+*.pkl
+*.joblib
+cache/
+datasets/
+hf_cache/
