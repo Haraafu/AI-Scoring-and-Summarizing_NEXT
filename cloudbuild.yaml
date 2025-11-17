@@ -1,0 +1,25 @@
+steps:
+  # 1) Build image Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/next-ai', '.']
+
+  # 2) Push image ke Container Registry / Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/next-ai']
+
+  # 3) Deploy ke Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'run', 'deploy', 'next-ai',
+        '--image', 'gcr.io/$PROJECT_ID/next-ai',
+        '--region', 'asia-southeast2',
+        '--platform', 'managed',
+        '--allow-unauthenticated',
+        '--memory', '2Gi',
+        '--port', '8080'
+      ]
+
+images:
+  - 'gcr.io/$PROJECT_ID/next-ai'

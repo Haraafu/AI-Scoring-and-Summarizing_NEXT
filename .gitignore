@@ -1,26 +1,23 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
 
-# Env & IDE
-.venv/
+# Virtual environment
 venv/
-.env
-.idea/
-.vscode/
 
-# Data & Model Artifacts
+# Models & checkpoints
 models/
-checkpoints/
+*.pt
+*.pth
 *.bin
 *.safetensors
-*.pt
-*.onnx
-*.ckpt
-*.npz
-*.npy
-*.pkl
-*.joblib
-cache/
-datasets/
-hf_cache/
+
+# HuggingFace cache
+~/.cache/huggingface/
+
+# Environment
+.env
+
+# VSCode
+.vscode/
